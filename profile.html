@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldPot - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Open+Sans:wght@400;600&family=Pacifico&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="pictures/logo_green.png" alt="WorldPot Logo" height="50">
+                <span>WorldPot</span>
+            </a>
+            
+            <ul class="main-menu">
+                <li class="menu-item">
+                    <a href="index.html">HOME</a>
+                </li>
+                <li class="menu-item has-mega-menu">
+                    <a href="#recipes">RECIPES</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-container">
+                            <div class="mega-menu-section">
+                                <h3>POPULAR RECIPES</h3>
+                                <ul>
+                                    <li><a href="/quick-easy">Quick & Easy</a></li>
+                                    <li><a href="/weeknight">Weeknight</a></li>
+                                    <li><a href="/healthy">Healthy</a></li>
+                                    <li><a href="/vegetarian">Vegetarian</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-section">
+                                <h3>RECIPE COLLECTIONS</h3>
+                                <ul>
+                                    <li><a href="/seasonal">Seasonal</a></li>
+                                    <li><a href="/trending">Trending</a></li>
+                                    <li><a href="/top-rated">Top Rated</a></li>
+                                    <li><a href="/new">New Recipes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-item"><a href="index.html#fusion-lab">FUSION LAB</a></li>
+                <li class="menu-item"><a href="community.html">COMMUNITY</a></li>
+            </ul>
+
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search recipes..." aria-label="Search">
+                    <button type="button" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <div class="user-profile">
+                    <button class="profile-button" aria-label="User Profile">
+                        <img src="pictures/user_profile.png" alt="User Profile">
+                    </button>
+                    <div class="profile-dropdown">
+                        <div class="profile-header">
+                            <img src="pictures/user_profile.png" alt="User Profile">
+                            <div class="profile-info">
+                                <h4>John Doe</h4>
+                                <p>john.doe@example.com</p>
+                            </div>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html">My Profile</a></li>
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="#" class="logout">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Log In</h2>
+            <form class="login-form" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Log In</button>
+                <p class="form-footer">
+                    Don't have an account? <a href="#" class="switch-to-signup">Sign Up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form class="signup-form" onsubmit="return handleSignup(event)">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label>Dietary Preferences</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="vegetarian"> Vegetarian</label>
+                        <label><input type="checkbox" value="vegan"> Vegan</label>
+                        <label><input type="checkbox" value="gluten-free"> Gluten-Free</label>
+                        <label><input type="checkbox" value="dairy-free"> Dairy-Free</label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+                <p class="form-footer">
+                    Already have an account? <a href="#" class="switch-to-login">Log In</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <main class="profile-container">
+        <!-- Cover Photo Section -->
+        <div class="profile-cover">
+            <img src="pictures/user_profile.png" alt="Cover Photo" class="cover-photo" id="coverPhoto">
+            <button class="change-cover-btn">
+                <i class="fas fa-camera"></i> Change Cover
+            </button>
+        </div>
+
+        <!-- Profile Header Section -->
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img src="pictures/user_profile.png" alt="Profile Picture" id="profilePicture">
+                <button class="change-avatar-btn">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            
+            <div class="profile-info">
+                <h1 id="userName">Loading...</h1>
+                <div class="profile-meta">
+                    <span id="userEmail">Loading...</span>
+                    <span>Joined: <span id="joinDate">January 2024</span></span>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">42</div>
+                        <div class="stat-label">Recipes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1.2k</div>
+                        <div class="stat-label">Followers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">890</div>
+                        <div class="stat-label">Following</div>
+                    </div>
+                </div>
+
+                <div class="dietary-preferences" id="dietaryPreferences">
+                    <!-- Dietary preferences will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Navigation -->
+        <nav class="profile-nav">
+            <ul class="nav-links">
+                <li><a href="#posts" class="active">Posts</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#friends">Friends</a></li>
+                <li><a href="#photos">Photos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Grid -->
+        <div class="profile-content">
+            <!-- Left Sidebar -->
+            <div class="profile-sidebar">
+                <div class="about-section">
+                    <h2 class="section-title">About</h2>
+                    <div class="about-item">
+                        <i class="fas fa-utensils about-icon"></i>
+                        <span>Professional Chef at Le Cordon Bleu</span>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-location-dot about-icon"></i>
+                        <span>Paris, France</span>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-heart about-icon"></i>
+                        <span>Specializes in French-Asian Fusion</span>
+                    </div>
+                </div>
+
+                <div class="friends-section">
+                    <h2 class="section-title">Friends (328)</h2>
+                    <div class="friends-grid">
+                        <!-- Sample friends, will be populated dynamically -->
+                        <div class="friend-item">
+                            <img src="assets/friend1.jpg" alt="Friend 1" class="friend-avatar">
+                            <div class="friend-name">Marie C.</div>
+                        </div>
+                        <!-- More friend items -->
+                    </div>
+                </div>
+
+                <div class="photos-section">
+                    <h2 class="section-title">Photos</h2>
+                    <div class="photos-grid">
+                        <!-- Sample photos, will be populated dynamically -->
+                        <div class="photo-item">
+                            <img src="assets/dish1.jpg" alt="Dish 1">
+                        </div>
+                        <!-- More photo items -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="create-post">
+                    <div class="post-input">
+                        <img src="pictures/user_profile.png" alt="Your Profile">
+                        <input type="text" placeholder="Share a recipe or update...">
+                    </div>
+                    <div class="post-actions">
+                        <button class="post-action-btn">
+                            <i class="fas fa-image"></i> Photo
+                        </button>
+                        <button class="post-action-btn">
+                            <i class="fas fa-utensils"></i> Recipe
+                        </button>
+                        <button class="post-action-btn">
+                            <i class="fas fa-video"></i> Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Posts Feed -->
+                <div class="posts-feed">
+                    <div class="post">
+                        <div class="post-header">
+                            <img src="pictures/user_profile.png" alt="Profile Picture">
+                            <div class="post-meta">
+                                <div class="post-author">John Doe</div>
+                                <div class="post-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            Just created this amazing fusion dish combining French and Japanese cuisines! 🍱
+                        </div>
+                        <img src="assets/dish-post.jpg" alt="Fusion Dish" class="post-image">
+                        <div class="post-stats">
+                            <span>124 likes</span>
+                            <span>32 comments</span>
+                        </div>
+                        <div class="post-actions">
+                            <div class="post-action">
+                                <i class="far fa-heart"></i> Like
+                            </div>
+                            <div class="post-action">
+                                <i class="far fa-comment"></i> Comment
+                            </div>
+                            <div class="post-action">
+                                <i class="far fa-share-square"></i> Share
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More posts will be added here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer"></footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About WorldPot</h3>
+                <p>Discover the art of fusion cooking with WorldPot. Join our community of passionate chefs and food enthusiasts exploring innovative culinary combinations.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="press.html">Press</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="recipes.html">Recipe Index</a></li>
+                    <li><a href="guidelines.html">Community Guidelines</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest recipes and cooking tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 WorldPot. All rights reserved.</p>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
+
+    
+</body>
+</html>

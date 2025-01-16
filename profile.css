@@ -1,0 +1,950 @@
+/* Add these header-specific styles to match index.html */
+.main-header {
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-bottom: 2px solid #65c051;
+}
+
+.main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #ffffff;
+    gap: 2rem;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.main-menu .menu-item {
+    position: relative;
+}
+
+.main-menu .menu-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.main-menu .menu-item a:hover {
+    color: #65c051;
+}
+
+/* Ensure the mega menu appears below the fixed header */
+.mega-menu {
+    top: 100%;
+}
+
+/* Update search bar styles to match */
+.search-bar {
+    position: relative;
+    margin-left: auto;
+    background: #ffffff;
+    padding: 0.5rem;
+}
+
+.search-bar input {
+    padding: 10px 40px 10px 15px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background: #f5f5f5;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.search-bar input:focus {
+    width: 250px;
+    border-color: #65c051;
+    outline: none;
+    background: white;
+}
+
+.search-bar button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+    color: #65c051;
+}
+
+/* Logo styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* CTA Buttons styles */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-buttons button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .login {
+    background: transparent;
+    border: 2px solid #65c051;
+    color: #65c051;
+}
+
+.cta-buttons .signup {
+    background: #65c051;
+    border: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(101, 192, 81, 0.3);
+}
+
+.cta-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .main-header nav {
+        padding: 1rem 2rem;
+    }
+    
+    .main-menu {
+        gap: 2rem;
+    }
+    
+    .search-bar input {
+        width: 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-menu {
+        gap: 1.5rem;
+    }
+    
+    .search-bar input {
+        width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-menu {
+        display: none;
+    }
+    
+    .header-right {
+        gap: 1rem;
+    }
+}
+
+/* Header right section */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* User Profile Styles */
+.user-profile {
+    position: relative;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background: none;
+}
+
+.profile-button:hover {
+    transform: scale(1.05);
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.user-profile:hover .profile-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.profile-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info h4 {
+    font-size: 1rem;
+    color: #212221;
+    margin: 0;
+}
+
+.profile-info p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+.profile-dropdown ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.profile-dropdown ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.profile-dropdown ul li a:hover {
+    background-color: #f5f5f5;
+    color: #65c051;
+}
+
+.profile-dropdown ul li a.logout {
+    color: #dc3545;
+}
+
+.profile-dropdown ul li a.logout:hover {
+    background-color: #fff1f1;
+}
+
+/* Footer Styles */
+.main-footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 60px 0 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #65c051;
+}
+
+.footer-section p {
+    color: #999;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #65c051;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #65c051;
+    transform: translateY(-3px);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.newsletter-form input::placeholder {
+    color: #999;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.15);
+}
+
+.newsletter-form button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #65c051;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #54a344;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer-bottom ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.footer-bottom ul li a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom ul li a:hover {
+    color: #65c051;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-bottom ul {
+        justify-content: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
+
+
+/* General Layout */
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Cover Photo Section */
+.profile-cover {
+    position: relative;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.change-cover-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.change-cover-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Profile Header Section */
+.profile-header {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,1));
+    backdrop-filter: blur(10px);
+    margin-top: -70px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.profile-avatar {
+    position: absolute;
+    top: -80px;
+    left: 30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid white;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.change-avatar-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.profile-info {
+    margin-left: 220px;
+    padding-top: 10px;
+}
+
+.profile-info h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #333;
+}
+
+.profile-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    background: #f8fafc;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+}
+
+.stat-item:not(:last-child):after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    height: 30px;
+    width: 1px;
+    background: #e5e7eb;
+    transform: translateY(-50%);
+}
+
+.stat-number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Profile Navigation */
+.profile-nav {
+    background: white;
+    border-radius: 15px;
+    margin: 20px 0;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 0;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+
+
+/* Main Content Grid */
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+/* Left Sidebar */
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-section,
+.friends-section,
+.photos-section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* About Section */
+.about-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.about-icon {
+    width: 20px;
+    color: #606FC7;
+}
+
+/* Friends Grid */
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.friend-item {
+    text-align: center;
+}
+
+.friend-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.friend-name {
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Photos Grid */
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.photo-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Post Creation */
+.create-post {
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-input {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.post-input img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.post-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.post-action-btn:hover {
+    background: #606FC7;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Posts Feed */
+.post {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-meta {
+    flex: 1;
+}
+
+.post-author {
+    font-weight: 600;
+    color: #333;
+}
+
+.post-time {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.post-content {
+    margin-bottom: 15px;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.post-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.post-action:hover {
+    color: #606FC7;
+}
+
+/* Dietary Preferences */
+.dietary-preferences {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.preference-tag {
+    padding: 5px 12px;
+    background: #606FC7;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-sidebar {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-info {
+        margin-left: 0;
+        padding-top: 120px;
+        text-align: center;
+    }
+    
+    .profile-avatar {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .profile-stats {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.profile-container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    background: #f0f2f5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details - WorldPot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Open+Sans&family=Pacifico&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Reuse the same header from index.html -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/logo.svg" alt="WorldPot Logo" height="40">
+                <span>WorldPot</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#recipes">Recipes</a>
+                <a href="#about">About</a>
+                <a href="community.html">Community</a>
+            </div>
+            <div class="nav-buttons">
+                <button class="search-btn">Search</button>
+                <button class="login">Login</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="recipe-blog">
+        <div class="recipe-hero">
+            <img id="recipe-image" src="" alt="Recipe Image">
+            <div class="recipe-overlay">
+                <h1 id="recipe-title"></h1>
+                <div class="recipe-meta">
+                    <span id="recipe-author"></span>
+                    <span id="recipe-rating"></span>
+                    <span id="recipe-likes"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-content">
+            <div class="recipe-info">
+                <div class="prep-time">
+                    <h3>Prep Time</h3>
+                    <p id="prep-time"></p>
+                </div>
+                <div class="cook-time">
+                    <h3>Cook Time</h3>
+                    <p id="cook-time"></p>
+                </div>
+                <div class="servings">
+                    <h3>Servings</h3>
+                    <p id="servings"></p>
+                </div>
+                <div class="difficulty">
+                    <h3>Difficulty</h3>
+                    <p id="difficulty"></p>
+                </div>
+            </div>
+
+            <div class="ingredients">
+                <h2>Ingredients</h2>
+                <ul id="ingredients-list"></ul>
+            </div>
+
+            <div class="instructions">
+                <h2>Instructions</h2>
+                <ol id="instructions-list"></ol>
+            </div>
+
+            <div class="chef-notes">
+                <h2>Chef's Notes</h2>
+                <p id="chef-notes"></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reuse the same footer from index.html -->
+    <footer>
+        <!-- Your footer content -->
+    </footer>
+
+    <script src="blog.js"></script>
+</body>
+</html>
